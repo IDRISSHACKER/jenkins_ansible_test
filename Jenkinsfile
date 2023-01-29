@@ -5,7 +5,7 @@ node{
     stage('Ansible'){
         ansiColor('xterm'){
             ansiblePlaybook(
-                colorized: true
+                colorized: true,
                 playbook: './plabook.yml'
             ) 
         }
