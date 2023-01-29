@@ -7,6 +7,8 @@ node{
             playbook: 'playbook.yml',
             inventory: 'hosts',
             become: true,
-            colorized: true) 
+            colorized: true,
+            installation: 'ansible'
+        ) 
     }
 }
