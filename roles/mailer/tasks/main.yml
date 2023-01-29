@@ -1,0 +1,12 @@
+---
+- name: send email for user
+  community.general.mail:
+    host: mx-dc03.ewodi.net
+    port: 587
+    username: ematcheu@guihon.cm
+    password: Floralux@2023
+    to: idrisscoder@gmail.com
+    subject: Deploiement de l aplli tv
+    body: system hell
+    secure: starttls
+...

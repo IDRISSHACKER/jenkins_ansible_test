@@ -1,0 +1,51 @@
+---
+
+- name: Get the current username
+  become: false
+  command: whoami
+  register: current_user
+
+- name: show the current user
+  debug: var=current_user.stdout
+
+- name: Clone file
+  git: 
+    repo: '{{ repot }}' 
+    dest: '/home/{{ current_user.stdout }}/tv_app/'
+    clone: yes
+  register: current_version
+
+- name: Deploy result
+  debug: msg='Nouvelle version deployer avec success'
+  when: current_version.changed
+
+- name: Deploy result
+  debug: msg='Aucune nouvelle fonctionnalitée n as été detecter'
+  when:  current_version.changed == false
+
+- name: search last files
+  find:
+    path: '/home/{{ current_user.stdout }}/tv_app'
+    age: -10m
+    patterns: '*.txt'
+  register: search_result
+
+
+- name: Generate active app
+  file:
+    src: '{{ search_result.files[0].path }}'
+    dest: '/home/{{ current_user.stdout }}/tv_app/current.txt'
+    state: hard
+    force: true
+  register: copy_result
+  when: search_result.matched
+
+- name: Copy info
+  debug: msg='Nouvelle version de l application déployé '
+  when: copy_result.changed
+
+- name: Copy info
+  debug: msg='Aucune mise a jours detecter '
+  when: copy_result.changed == false
+
+...

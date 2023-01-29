@@ -1,0 +1,12 @@
+---
+- hosts: test
+  become: yes
+  vars:
+    root_path: "~/tv_app"
+    repot: https://github.com/IDRISSHACKER/tv_test.git
+    user_look: "{{ lookup('env', 'USER') }}"
+  
+  roles:
+    - repo
+  
+...
