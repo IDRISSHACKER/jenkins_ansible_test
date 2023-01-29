@@ -1,5 +1,5 @@
 node{
-    state('Clone project'){
+    stage('Clone project'){
         git 'https://github.com/IDRISSHACKER/jenkins_ansible_test.git'
     }
     stage('Ansible'){
