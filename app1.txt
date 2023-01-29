@@ -6,3 +6,6 @@ This is a v2 is this same file {{enjoy}}
 This is a v3 is this same file {{enjoy}} Migrate to v3
 
 test triggers
+
+
+execute triggers
