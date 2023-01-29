@@ -4,7 +4,8 @@ node{
     }
     stage('Ansible'){
         ansiblePlaybook(
-            plabook : './plabook.yml'
+            become: true
+            plabook: './plabook.yml'
         )
     }
 }
