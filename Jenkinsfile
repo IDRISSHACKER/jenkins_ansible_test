@@ -4,10 +4,7 @@ node{
     }
     stage('Ansible'){
         ansiblePlaybook(
-            plabook : 'plabook.yml',
-            inventory : 'hosts',
-            vault_password_file : '.vault_pass',
-            host_key_checking : false
+            plabook : 'plabook.yml'
         )
     }
 }
