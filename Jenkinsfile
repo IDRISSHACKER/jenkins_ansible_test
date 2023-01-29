@@ -4,11 +4,7 @@ node{
     }
     ansiColor('xterm') {
         ansiblePlaybook( 
-            playbook: 'playbook.yml',
-            inventory: 'hosts',
-            become: true,
-            colorized: true,
-            installation: 'ansible'
+            playbook: 'playbook.yml'
         ) 
     }
 }
