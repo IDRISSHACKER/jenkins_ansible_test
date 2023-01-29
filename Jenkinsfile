@@ -5,7 +5,8 @@ node{
     ansiColor('xterm') {
         ansiblePlaybook( 
             playbook: './jenkins_ansible_test/playbook.yml',
-            inventory: './jenkins_ansible_test/hosts', 
+            inventory: './jenkins_ansible_test/hosts',
+            become: true,
             colorized: true) 
     }
 }
