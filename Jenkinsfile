@@ -1,5 +1,5 @@
 node{
-    ansiColor('xterm') {
-        ansiblePlaybook(playbook: 'playbook.yml', become: true) 
+    stage('Ansible'){
+        ansiblePlaybook(playbook: 'playbook.yml') 
     }
 }
