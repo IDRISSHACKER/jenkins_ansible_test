@@ -3,6 +3,8 @@ node{
         git 'https://github.com/IDRISSHACKER/jenkins_ansible_test.git'
     }
     stage('Ansible'){
-        ansiblePlaybook(playbook: './plabook.yml') 
+        wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
+            ansiblePlaybook(playbook: './plabook.yml') 
+        }
     }
 }
